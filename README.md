@@ -101,24 +101,89 @@ From the above characteristic table, we can directly write the next state equati
 Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
-### Procedure
-/* write all the steps invloved */
+procedure:
+Step 1: Open Quartus II and select new project and choose the file location.
+
+Step 2: Module Declaration. Module should have the file name.
+
+Step 3: Input-Output Delecaration.
+
+Step 4: Use assign declaration and wire to define the functionality of logic circuits.
+
+Step 5: At the end give endmodule.
+
+Step 6: Run the program and choose RTL viewer to get RTL realization.
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by:s.bhuvaneshwari
+RegisterNumber: 212221240010 
+SR FLIPFLOP:
+
+module ex05(S,R,Clk,Q,Qbar);
+input S,R,Clk;
+output Q,Qbar;
+wire X,Y;
+nand(X,S,Clk);
+nand(Y,R,Clk);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+
+D(DELAY) FLIPFLOP:
+
+module ex05(D,Clk,Q,Qbar);
+input D,Clk;
+output Q,Qbar;
+assign Dbar= |D;
+wire X,Y;
+nand(X,D,Clk);
+nand(Y,Dbar,Clk);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+
+JK FLIPFLOP:
+
+module ex05(J,K,Clk,Q,Qbar);
+input J,K,Clk;
+output Q,Qbar;
+wire X,Y;
+nand(X,J,Clk,Qbar);
+nand(Y,K,Clk,Q);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+
+T(TOGGLE) FLIPFLOP:
+
+module ex05(T,Clk,Q,Qbar);
+input T,Clk;
+output Q,Qbar;
+wire X,Y;
+nand(X,T,Clk,Qbar);
+nand(Y,T,Clk,Q);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
 
 
 
 
 
 
-### RTL LOGIC FOR FLIPFLOPS 
+ RTL LOGIC FOR FLIPFLOPS:
+ SR FLIPFLOP:
+ ![195858325-7a01227f-f094-48c6-8d07-e5c2a85f0ded](https://user-images.githubusercontent.com/94828604/196399381-88ad3748-617e-41e2-9daf-2df40d6f070b.png)
+ D(delay)FLIPFLOP:
+ ![195858430-14ae1368-ce2f-4ebe-8647-b914e0043644](https://user-images.githubusercontent.com/94828604/196399556-a3977896-2ee4-4b8e-bce2-a4eb24c7e9e4.png)
+ JK FLIPFLOP:
+ ![195858517-56af3493-05c3-445a-9764-90f0fb328f8b](https://user-images.githubusercontent.com/94828604/196399726-6824398e-b238-4267-be10-245836747d72.png)
+ T FLIPFLOP:
+ ![195858600-151ba021-2245-4491-b5d6-e066c6c0f409](https://user-images.githubusercontent.com/94828604/196399840-a9317a62-b740-49f9-b60c-6fa6ecb292b2.png)
 
 
 
@@ -128,13 +193,16 @@ RegisterNumber:
 
 
 
-### TIMING DIGRAMS FOR FLIP FLOPS 
+ TIMING DIGRAMS FOR FLIP FLOPS :
+ SR FLIPFLOP:
+ ![195859452-ebdb8e0c-6ebd-4aa5-9073-b7a594b7cd0a](https://user-images.githubusercontent.com/94828604/196399996-9bd09ecc-7d68-4fc1-b222-44130be66391.png)
+ D(DELAT) FLIPFLOP:
+ ![195859980-5667007f-1052-4cec-b6f9-4f27d7446a3e](https://user-images.githubusercontent.com/94828604/196400180-61ff193a-7ff4-4fe1-9e3d-17897b516e16.png)
+ JK FLIPFLOP:
+ ![195859636-89cb55c8-4c02-4eb9-a149-e6753fa39d22](https://user-images.githubusercontent.com/94828604/196400278-349884f7-4a2c-4a18-930d-ea60f94a5a04.png)
+ T FLIPFLOP:
+ ![195859717-e6a9e87e-6f4f-40a7-80ad-d7ca92612a8c](https://user-images.githubusercontent.com/94828604/196400391-b7d7e3c7-67b9-49cb-a732-bbc1a816c679.png) 
 
 
-
-
-
-
-
-
-### RESULTS 
+RESULTS :
+All the flipflops are implementde using verilog and their functionality has been validated using their functional tables.
